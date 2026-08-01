@@ -11,10 +11,8 @@
   <!-- Open Graph / WhatsApp -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="Jyaram Dhungana, Flutter Developer,  Mobile App Developer," />
-  <meta property="og:title"
-    content="Jayaram Dhungana - Flutter Developer | Mobile App Developer " />
-  <meta property="og:description"
-    content="Jayaram Dhungana - Experienced Flutter App Developer " />
+  <meta property="og:title" content="Jayaram Dhungana - Flutter Developer | Mobile App Developer " />
+  <meta property="og:description" content="Jayaram Dhungana - Experienced Flutter App Developer " />
   <meta property="og:image" content="images/jayaram.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -22,10 +20,8 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="Jyaram Dhungana, Flutter Developer,  Mobile App Developer," />
-  <meta name="twitter:title"
-    content="Jayaram Dhungana - Flutter Developer | Mobile App Developer " />
-  <meta name="twitter:description"
-    content="Jayaram Dhungana - Experienced Flutter App Developer " />
+  <meta name="twitter:title" content="Jayaram Dhungana - Flutter Developer | Mobile App Developer " />
+  <meta name="twitter:description" content="Jayaram Dhungana - Experienced Flutter App Developer " />
   <meta name="twitter:image" content="images/jayaram.png" />
 
   <title>
@@ -418,6 +414,42 @@
     }
 
     /* Utilities used inline in markup preserved in style for minify */
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 14, 39, 0.8);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-content {
+      background: var(--bg-secondary);
+      border: 1px solid rgba(100, 255, 218, 0.2);
+      border-radius: 12px;
+      width: 90%;
+      max-width: 600px;
+      max-height: 80vh;
+      overflow-y: auto;
+      transform: translateY(20px) scale(0.95);
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-overlay.active .modal-content {
+      transform: translateY(0) scale(1);
+    }
   </style>
 </head>
 
@@ -564,7 +596,8 @@
       </div>
     </div>
     <p class="scroll-fade-in mt-5">
-      I’m a Flutter Developer with 6+ months of real-world experience building production-ready mobile applications.
+      I’m a Flutter Developer with More than 1 year of real-world experience building production-ready mobile
+      applications.
 
       I specialize in developing apps from scratch to Play Store deployment, focusing on clean architecture, performance
       optimization, and intuitive UI/UX. I enjoy working with modern state management solutions like BLoC, Riverpod, and
@@ -581,8 +614,9 @@
         <p>✅ Expert in Flutter </p>
 
         <p>✅ Skilled in API integration — RESTAPI</p>
-        <p>✅ Strong knowledge of state management (Provier,Riverpod,Bloc)</p>
-
+        <p>✅ Strong knowledge of state management (Provier,Riverpod,Bloc,Cubit)</p>
+        <p>✅ Strong knowledge of Clean Architecture</p>
+        <p>✅ Strong knowledge of Firebase Integration and PUsh notification service</p>
         <p>
           ✅ Play Store publishing & deployment experience
         </p>
@@ -597,7 +631,21 @@
       </h3>
 
       <div class="relative border-l border-[#64ffda]/40 pl-8 space-y-12 scroll-fade-in">
+
         <!-- Item 1 -->
+        <div class="relative">
+          <span class="scroll-fade-in absolute -left-[41px] top-2 w-4 h-4 bg-[#64ffda] rounded-full"></span>
+          <div class="ml-2 scroll-fade-in">
+            <p class="text-xl font-medium text-[#64ffda]">
+              Uranus Tech Nepal,Naxal,Kathmandu
+            </p>
+            <p class="text-base text-gray-300">
+              Flutter Developer
+            </p>
+            <p class="text-sm text-gray-400">February 2026 – Continue</p>
+          </div>
+        </div>
+        <!-- Item 2 -->
         <div class="relative">
           <span class="scroll-fade-in absolute -left-[41px] top-2 w-4 h-4 bg-[#64ffda] rounded-full"></span>
           <div class="ml-2 scroll-fade-in">
@@ -611,7 +659,7 @@
           </div>
         </div>
 
-        <!-- Item 2 -->
+        <!-- Item 3 -->
         <div class="relative">
           <span class="scroll-fade-in absolute -left-[42px] top-2 w-4 h-4 bg-[#64ffda] rounded-full"></span>
           <div class="ml-2 scroll-fade-in">
@@ -653,293 +701,398 @@
 
   <!-- Projects Section -->
   <section id="projects" class="py-10 px-5 md:px-10 lg:px-20 max-w-7xl mx-auto">
-    <h2
-      class="text-4xl mb-8 relative inline-block after:content-[''] after:absolute after:bottom-[-10px] after:left-0 after:w-12 after:h-0.5 after:bg-[#64ffda] scroll-fade-in">
-      Projects
-    </h2>
+    <div class="text-center md:text-left mb-8">
+      <h2
+        class="text-4xl mb-4 relative inline-block after:content-[''] after:absolute after:bottom-[-10px] after:left-0 after:w-12 after:h-0.5 after:bg-[#64ffda] scroll-fade-in">
+        Projects
+      </h2>
+      <p class="text-[#a0a0a0] text-base mt-3 scroll-fade-in max-w-2xl">
+        Explore my professional client applications developed at Uranus Tech Nepal & EEE Innovation Ghar, as well as my
+        independently published mobile apps.
+      </p>
+    </div>
 
-    
+    <!-- Category Filter Tabs -->
+    <div class="flex flex-wrap justify-center md:justify-start gap-2.5 md:gap-3 mb-10 scroll-fade-in"
+      id="project-filters">
+      <button
+        class="project-filter-btn active px-4 md:px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold transition-all duration-300 bg-[#64ffda] text-[#0a0e27] shadow-lg shadow-[rgba(100,255,218,0.2)] cursor-pointer"
+        data-filter="all">
+        <i class="fas fa-th-large mr-1.5 md:mr-2"></i>All Projects
+      </button>
+      <button
+        class="project-filter-btn px-4 md:px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold transition-all duration-300 bg-[#151932] text-[#a0a0a0] hover:text-[#64ffda] hover:bg-[#1e2140] border border-[#1e2140] cursor-pointer"
+        data-filter="professional">
+        <i class="fas fa-briefcase mr-1.5 md:mr-2"></i>Professional Work
+      </button>
+      <button
+        class="project-filter-btn px-4 md:px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold transition-all duration-300 bg-[#151932] text-[#a0a0a0] hover:text-[#64ffda] hover:bg-[#1e2140] border border-[#1e2140] cursor-pointer"
+        data-filter="uranus">
+        <i class="fas fa-building mr-1.5 md:mr-2"></i>Uranus Tech Nepal
+      </button>
+      <button
+        class="project-filter-btn px-4 md:px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold transition-all duration-300 bg-[#151932] text-[#a0a0a0] hover:text-[#64ffda] hover:bg-[#1e2140] border border-[#1e2140] cursor-pointer"
+        data-filter="eee">
+        <i class="fas fa-lightbulb mr-1.5 md:mr-2"></i>EEE Innovation Ghar
+      </button>
+      <button
+        class="project-filter-btn px-4 md:px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold transition-all duration-300 bg-[#151932] text-[#a0a0a0] hover:text-[#64ffda] hover:bg-[#1e2140] border border-[#1e2140] cursor-pointer"
+        data-filter="personal">
+        <i class="fas fa-user-astronaut mr-1.5 md:mr-2"></i>Personal Projects
+      </button>
+    </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-      <!-- Project cards (kept content identical) -->
-      <div
-        class="bg-[#151932] rounded-lg overflow-hidden transition-all duration-300 hover:transform hover:-translate-y-2.5 hover:shadow-lg hover:shadow-[rgba(100,255,218,0.2)] project-card scroll-scale">
-       <!-- Client Project Label -->
-  <div class="px-6 pt-4">
-    <h4 class="text-sm uppercase tracking-wider text-[#64ffda] mb-2">
-      Client Project
-    </h4>
-  </div>
-        <div class="h-60 overflow-hidden">
-          <img src="images/sidhasewa image.jpg" alt="My ClinicOS"
-            class="w-full h-full object-contain transition-transform duration-300 hover:scale-110" />
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8" id="projects-grid">
+      <!-- 1.  HRM (Professional - Uranus Tech) -->
+      <div data-category="professional" data-company="uranus"
+        class="bg-[#151932] rounded-lg overflow-hidden transition-all duration-300 hover:transform hover:-translate-y-2.5 hover:shadow-lg hover:shadow-[rgba(100,255,218,0.2)] project-card scroll-scale flex flex-col justify-between">
+        <div>
+          <div class="px-6 pt-5 flex justify-between items-center">
+            <span
+              class="bg-[#64ffda]/10 text-[#64ffda] border border-[#64ffda]/30 px-3 py-1 rounded-full text-xs font-semibold tracking-wide">
+              <i class="fas fa-building mr-1.5"></i>Uranus Tech Nepal
+            </span>
+            <span class="text-xs text-[#a0a0a0] font-mono">HRM</span>
+          </div>
+          <div
+            class="h-48 my-4 mx-6 rounded-lg bg-gradient-to-br from-[#1e2140] to-[#0a0e27] border border-[#64ffda]/20 flex flex-col items-center justify-center relative overflow-hidden group">
+            <div class="absolute inset-0 bg-[#64ffda]/5 group-hover:bg-[#64ffda]/10 transition-colors duration-300">
+            </div>
+            <i
+              class="fas fa-users-gear text-5xl text-[#64ffda] mb-2 transition-transform duration-300 group-hover:scale-110"></i>
+            <span class="text-xs text-[#79c0ff] font-medium tracking-wider uppercase">Human Resource Suite</span>
+          </div>
+          <div class="px-6 pb-2">
+            <h3 class="text-xl mb-2 text-[#64ffda] font-bold">Microfinance HRM System</h3>
+            <p class="text-[#a0a0a0] text-sm leading-relaxed">
+              All-in-one Human Resource Management suite (White-labeled) used by multiple microfinances to streamline
+              employee daily attendance, leave & travel requests, manual attendance overrides, CIT task workflows, and
+              real-time HR analytics reporting.
+            </p>
+            <div class="flex flex-wrap gap-2 my-4">
+              <span
+                class="bg-[#79c0ff]/20 text-[#79c0ff] px-2.5 py-0.5 rounded-full text-xs font-medium border border-[#79c0ff]/30">Flutter</span>
+              <span
+                class="bg-[#79c0ff]/20 text-[#79c0ff] px-2.5 py-0.5 rounded-full text-xs font-medium border border-[#79c0ff]/30">BLoC</span>
+              <span
+                class="bg-[#79c0ff]/20 text-[#79c0ff] px-2.5 py-0.5 rounded-full text-xs font-medium border border-[#79c0ff]/30">REST
+                API</span>
+              <span
+                class="bg-[#79c0ff]/20 text-[#79c0ff] px-2.5 py-0.5 rounded-full text-xs font-medium border border-[#79c0ff]/30">HR
+                Analytics</span>
+            </div>
+          </div>
         </div>
-        <div class="p-6">
-          <h3 class="text-xl mb-2 text-[#64ffda]">Sidhasewa</h3>
-          <p class="text-[#a0a0a0]">
-            Flutter-based client application connecting producers and consumers with
-            real-time market data. Implemented BLoC state management across the entire
-            application for scalable and maintainable architecture. Designed and
-            implemented a smooth, responsive, and user-friendly mobile experience.
-          </p>
-          <div class="flex flex-wrap gap-3 my-5">
-            <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">Flutter</span>
-            <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">BLOC</span>
-            <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">RESTAPI</span>
-
-          </div>
-          <div class="grid grid-cols-2 gap-4 p-1 pt-1">
-            <a href="https://play.google.com/store/apps/details?id=com.sidhasewa.app&pcampaignid=web_share"
-              target="_blank" class="text-[#64ffda] no-underline flex items-center gap-2"><img
-                src="images/play-store.png" class="transition-transform duration-300 hover:scale-110" /></a>
-
-          </div>
+        <div class="px-6 pb-6 pt-2 border-t border-[#1e2140]/60">
+          <button data-modal-title="Microfinance HRM System"
+            data-modal-desc="This white-labeled HRM system is actively used by multiple microfinance institutions."
+            data-clients='[{"company":"Nirdhan Utthan Laghubitta","appName":"Nirdhan HRM","link":"https://play.google.com/store/apps/details?id=com.uranustech.nirdhanhrm&pcampaignid=web_share","logo":"images/nirdhan.webp"},{"company":"Sana Kisan Laghubitta","appName":"Sana Kisan HRM","link":"https://play.google.com/store/apps/details?id=com.uranustech.skbblhrm&pcampaignid=web_share","logo":"images/skbbl.webp"},{"company":"Basucol Laghubitta","appName":"Basucol HRM","link":"https://play.google.com/store/apps/details?id=com.uranustech.basucolhrm&pcampaignid=web_share","logo":"images/basucol.webp"},{"company":"Nerude Mirmire Laghubitta","appName":"Nerude Mirmire HRM","link":"https://play.google.com/store/apps/details?id=com.uranustech.nerudehrm&pcampaignid=web_share","logo":"images/nerude mirmire.webp"},{"company":"GBLBS Laghubitta","appName":"GBLBS HRM","link":"https://play.google.com/store/apps/details?id=com.uranustech.gblbshrm&pcampaignid=web_share","logo":"images/gblbs.webp"},{"company":"NESDO Samridha Laghubitta","appName":"NESDO Samridha HRM","link":"https://play.google.com/store/apps/details?id=com.uranustech.nesdosambridhahrm&pcampaignid=web_share","logo":"images/nesdo.webp"}]'
+            class="view-clients-btn w-full bg-[#1e2140] hover:bg-[#64ffda] text-[#64ffda] hover:text-[#0a0e27] py-2 rounded transition-colors duration-300 font-semibold text-sm flex items-center justify-center gap-2 cursor-pointer border border-[#64ffda]/30 hover:border-transparent">
+            <i class="fas fa-layer-group"></i>
+            <span>View All Clients</span>
+          </button>
         </div>
       </div>
 
-      <!-- Self Project  -->
-      <div
-        class="bg-[#151932] rounded-lg overflow-hidden transition-all duration-300 hover:transform hover:-translate-y-2.5 hover:shadow-lg hover:shadow-[rgba(100,255,218,0.2)] project-card scroll-scale">
-        <div class="px-6 pt-4">
-    <h4 class="text-sm uppercase tracking-wider text-[#64ffda] mb-2">
-      Self Project
-    </h4>
-  </div>
-        <div class="h-60 overflow-hidden">
-          <img src="images/class-09_science.png" alt="Class 9 Science"
-            class="w-full h-full object-fill transition-transform duration-300 hover:scale-110" />
+      <!-- 2.  DFA (Professional - Uranus Tech) -->
+      <div data-category="professional" data-company="uranus"
+        class="bg-[#151932] rounded-lg overflow-hidden transition-all duration-300 hover:transform hover:-translate-y-2.5 hover:shadow-lg hover:shadow-[rgba(100,255,218,0.2)] project-card scroll-scale flex flex-col justify-between">
+        <div>
+          <div class="px-6 pt-5 flex justify-between items-center">
+            <span
+              class="bg-[#64ffda]/10 text-[#64ffda] border border-[#64ffda]/30 px-3 py-1 rounded-full text-xs font-semibold tracking-wide">
+              <i class="fas fa-building mr-1.5"></i>Uranus Tech Nepal
+            </span>
+            <span class="text-xs text-[#a0a0a0] font-mono">Fintech</span>
+          </div>
+          <div
+            class="h-48 my-4 mx-6 rounded-lg bg-gradient-to-br from-[#1e2140] to-[#0a0e27] border border-[#79c0ff]/20 flex flex-col items-center justify-center relative overflow-hidden group">
+            <div class="absolute inset-0 bg-[#79c0ff]/5 group-hover:bg-[#79c0ff]/10 transition-colors duration-300">
+            </div>
+            <i
+              class="fas fa-hand-holding-dollar text-5xl text-[#79c0ff] mb-2 transition-transform duration-300 group-hover:scale-110"></i>
+            <span class="text-xs text-[#64ffda] font-medium tracking-wider uppercase">Microfinance Solution</span>
+          </div>
+          <div class="px-6 pb-2">
+            <h3 class="text-xl mb-2 text-[#64ffda] font-bold">Microfinance DFA System</h3>
+            <p class="text-[#a0a0a0] text-sm leading-relaxed">
+              White-labeled Digital Field Assistant application used by 15-20 microfinance institutions. Empowers field
+              staff to manage daily center meetings, collection tracking, and loan workflows.
+            </p>
+            <div class="flex flex-wrap gap-2 my-4">
+              <span
+                class="bg-[#79c0ff]/20 text-[#79c0ff] px-2.5 py-0.5 rounded-full text-xs font-medium border border-[#79c0ff]/30">Flutter</span>
+              <span
+                class="bg-[#79c0ff]/20 text-[#79c0ff] px-2.5 py-0.5 rounded-full text-xs font-medium border border-[#79c0ff]/30">Fintech</span>
+              <span
+                class="bg-[#79c0ff]/20 text-[#79c0ff] px-2.5 py-0.5 rounded-full text-xs font-medium border border-[#79c0ff]/30">BLoC</span>
+              <span
+                class="bg-[#79c0ff]/20 text-[#79c0ff] px-2.5 py-0.5 rounded-full text-xs font-medium border border-[#79c0ff]/30">REST
+                API</span>
+            </div>
+          </div>
         </div>
-        <div class="p-6">
-          <h3 class="text-xl mb-2 text-[#64ffda]">Class 9 Science</h3>
-          <p class="text-[#a0a0a0]">
-            Self-developed and self-published Flutter-based educational application for Class 9
-            students.Implemented BLoC state management across the entire application for scalable and
-            maintainable architecture.Designed and implemented detailed, chapter-wise solutions aligned with the
-            official
-            curriculum.
-          </p>
-          <div class="flex flex-wrap gap-3 my-5">
-            <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">Flutter</span>
-            <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">BLOC</span>
+        <div class="px-6 pb-6 pt-2 border-t border-[#1e2140]/60">
+          <button data-modal-title="Microfinance DFA System"
+            data-modal-desc="This white-labeled HRM system is actively used by multiple microfinance institutions."
+            data-clients='[
+            {"company":"Nirdhan Utthan Laghubitta","appName":"Nirdhan DFA","link":"https://play.google.com/store/apps/details?id=com.uranusapp.nirdhandfa&pcampaignid=web_share","logo":"images/nirdhan.webp"},
+            {"company":"Nerude Mirmire Laghubitta","appName":"Nerude Mirmire DFA","link":"https://play.google.com/store/apps/details?id=com.uranusapp.nerudemirmireDfa&pcampaignid=web_share","logo":"images/nerude mirmire.webp"},
 
-          </div>
-          <div class="grid grid-cols-2  gap-4 p-1 pt-1">
-            <a href="https://play.google.com/store/apps/details?id=com.jayaram.class9science&pcampaignid=web_share"
-              target="_blank" class="text-[#64ffda] no-underline flex items-center gap-2"><img
-                src="images/play-store.png" class="transition-transform duration-300 hover:scale-110" /></a>
-
-          </div>
+            {"company":"GBLBS Laghubitta","appName":"GBLBS DFA","link":"https://play.google.com/store/apps/details?id=com.uranusapp.grameenbikassmartstaff&pcampaignid=web_share","logo":"images/gblbs.webp"},
+            
+            {"company":"NESDO Samridha Laghubitta","appName":"NESDO Samridha DFA","link":"https://play.google.com/store/apps/details?id=com.uranusapp.nesdoDfa&pcampaignid=web_share","logo":"images/nesdo.webp"}
+            
+            ]'
+            class="view-clients-btn w-full bg-[#1e2140] hover:bg-[#64ffda] text-[#64ffda] hover:text-[#0a0e27] py-2 rounded transition-colors duration-300 font-semibold text-sm flex items-center justify-center gap-2 cursor-pointer border border-[#64ffda]/30 hover:border-transparent">
+            <i class="fas fa-layer-group"></i>
+            <span>View All Clients</span>
+          </button>
         </div>
       </div>
 
-
-      <!-- SEE Question -->
-      <div
-        class="bg-[#151932] rounded-lg overflow-hidden transition-all duration-300 hover:transform hover:-translate-y-2.5 hover:shadow-lg hover:shadow-[rgba(100,255,218,0.2)] project-card scroll-scale">
-       <div class="px-6 pt-4">
-    <h4 class="text-sm uppercase tracking-wider text-[#64ffda] mb-2">
-      Self Project
-    </h4>
-  </div>
-        <div class="h-60 overflow-hidden">
-          <img src="images/see_question.png" alt="See question"
-            class="w-full h-full object-fill transition-transform duration-300 hover:scale-110" />
+      <!-- 3. SKBBL E-Banking App (Professional - Uranus Tech) -->
+      <div data-category="professional" data-company="uranus"
+        class="bg-[#151932] rounded-lg overflow-hidden transition-all duration-300 hover:transform hover:-translate-y-2.5 hover:shadow-lg hover:shadow-[rgba(100,255,218,0.2)] project-card scroll-scale flex flex-col justify-between">
+        <div>
+          <div class="px-6 pt-5 flex justify-between items-center">
+            <span
+              class="bg-[#64ffda]/10 text-[#64ffda] border border-[#64ffda]/30 px-3 py-1 rounded-full text-xs font-semibold tracking-wide">
+              <i class="fas fa-building mr-1.5"></i>Uranus Tech Nepal
+            </span>
+            <span class="text-xs text-[#a0a0a0] font-mono">E-Banking</span>
+          </div>
+          <div
+            class="h-48 my-4 mx-6 rounded-lg bg-gradient-to-br from-[#1e2140] to-[#0a0e27] border border-[#7ee787]/20 flex flex-col items-center justify-center relative overflow-hidden group">
+            <div class="absolute inset-0 bg-[#7ee787]/5 group-hover:bg-[#7ee787]/10 transition-colors duration-300">
+            </div>
+            <i
+              class="fas fa-building-columns text-5xl text-[#7ee787] mb-2 transition-transform duration-300 group-hover:scale-110"></i>
+            <span class="text-xs text-[#7ee787] font-medium tracking-wider uppercase">Banking & Finance</span>
+          </div>
+          <div class="px-6 pb-2">
+            <h3 class="text-xl mb-2 text-[#64ffda] font-bold">Microfinance E-Banking</h3>
+            <p class="text-[#a0a0a0] text-sm leading-relaxed">
+              White-labeled mobile banking solution for microfinance members featuring installment tracking, loan &
+              savings account management, monthly statements, and digital payment requests.
+            </p>
+            <div class="flex flex-wrap gap-2 my-4">
+              <span
+                class="bg-[#79c0ff]/20 text-[#79c0ff] px-2.5 py-0.5 rounded-full text-xs font-medium border border-[#79c0ff]/30">Flutter</span>
+              <span
+                class="bg-[#79c0ff]/20 text-[#79c0ff] px-2.5 py-0.5 rounded-full text-xs font-medium border border-[#79c0ff]/30">E-Banking</span>
+              <span
+                class="bg-[#79c0ff]/20 text-[#79c0ff] px-2.5 py-0.5 rounded-full text-xs font-medium border border-[#79c0ff]/30">BLoC</span>
+              <span
+                class="bg-[#79c0ff]/20 text-[#79c0ff] px-2.5 py-0.5 rounded-full text-xs font-medium border border-[#79c0ff]/30">REST
+                API</span>
+            </div>
+          </div>
         </div>
-        <div class="p-6">
-          <h3 class="text-xl mb-2 text-[#64ffda]">SEE Question</h3>
-          <p class="text-[#a0a0a0]">
-            Flutter-based SEE preparation application developed and published independently.
-            Implemented BLoC state management across the entire application for scalable and
-            maintainable architecture. Designed and implemented a clean, exam-focused and
-            user-friendly experience for students.
-          </p>
-          <div class="flex flex-wrap gap-3 my-5">
-            <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">Flutter</span>
-            <span class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm">BLOC</span>
+        <div class="px-6 pb-6 pt-2 border-t border-[#1e2140]/60">
+          <button data-modal-title="Microfinance E-Banking System"
+            data-modal-desc="This white-labeled E-Banking system is utilized by numerous cooperative and microfinance institutions."
+            data-clients='[{"name":"SKBBL E-Banking","link":"https://play.google.com/store/apps/details?id=com.uranusapp.skbblinfoapp&pcampaignid=web_share"},{"name":"Client 2 (Coming Soon)","link":"#"},{"name":"Client 3 (Coming Soon)","link":"#"}]'
+            class="view-clients-btn w-full bg-[#1e2140] hover:bg-[#64ffda] text-[#64ffda] hover:text-[#0a0e27] py-2 rounded transition-colors duration-300 font-semibold text-sm flex items-center justify-center gap-2 cursor-pointer border border-[#64ffda]/30 hover:border-transparent">
+            <i class="fas fa-layer-group"></i>
+            <span>View All Clients</span>
+          </button>
+        </div>
+      </div>
 
+      <!-- 4. Manushi mPassbook (Professional - Uranus Tech) -->
+      <div data-category="professional" data-company="uranus"
+        class="bg-[#151932] rounded-lg overflow-hidden transition-all duration-300 hover:transform hover:-translate-y-2.5 hover:shadow-lg hover:shadow-[rgba(100,255,218,0.2)] project-card scroll-scale flex flex-col justify-between">
+        <div>
+          <div class="px-6 pt-5 flex justify-between items-center">
+            <span
+              class="bg-[#64ffda]/10 text-[#64ffda] border border-[#64ffda]/30 px-3 py-1 rounded-full text-xs font-semibold tracking-wide">
+              <i class="fas fa-building mr-1.5"></i>Uranus Tech Nepal
+            </span>
+            <span class="text-xs text-[#a0a0a0] font-mono">Digital Passbook</span>
           </div>
-          <div class="grid grid-cols-2 gap-4 p-1 pt-1">
-            <a href="https://play.google.com/store/apps/details?id=com.jayaram.seequestion&pcampaignid=web_share"
-              target="_blank" class="text-[#64ffda] no-underline flex items-center gap-2"><img
-                src="images/play-store.png" class="transition-transform duration-300 hover:scale-110" /></a>
+          <div
+            class="h-48 my-4 mx-6 rounded-lg bg-gradient-to-br from-[#1e2140] to-[#0a0e27] border border-[#f06292]/20 flex flex-col items-center justify-center relative overflow-hidden group">
+            <div class="absolute inset-0 bg-[#f06292]/5 group-hover:bg-[#f06292]/10 transition-colors duration-300">
+            </div>
+            <i
+              class="fas fa-wallet text-5xl text-[#f06292] mb-2 transition-transform duration-300 group-hover:scale-110"></i>
+            <span class="text-xs text-[#f06292] font-medium tracking-wider uppercase">Manushi Laghubitta</span>
+          </div>
+          <div class="px-6 pb-2">
+            <h3 class="text-xl mb-2 text-[#64ffda] font-bold">Microfinance mPassbook</h3>
+            <p class="text-[#a0a0a0] text-sm leading-relaxed">
+              White-labeled digital passbook application for microfinance members to conveniently view meeting
+              schedules, loan balances, savings account info, and financial service records anywhere.
+            </p>
+            <div class="flex flex-wrap gap-2 my-4">
+              <span
+                class="bg-[#79c0ff]/20 text-[#79c0ff] px-2.5 py-0.5 rounded-full text-xs font-medium border border-[#79c0ff]/30">Flutter</span>
+              <span
+                class="bg-[#79c0ff]/20 text-[#79c0ff] px-2.5 py-0.5 rounded-full text-xs font-medium border border-[#79c0ff]/30">Fintech</span>
+              <span
+                class="bg-[#79c0ff]/20 text-[#79c0ff] px-2.5 py-0.5 rounded-full text-xs font-medium border border-[#79c0ff]/30">BLoC</span>
+              <span
+                class="bg-[#79c0ff]/20 text-[#79c0ff] px-2.5 py-0.5 rounded-full text-xs font-medium border border-[#79c0ff]/30">REST
+                API</span>
+            </div>
+          </div>
+        </div>
+        <div class="px-6 pb-6 pt-2 border-t border-[#1e2140]/60">
+          <button data-modal-title="Microfinance mPassbook System"
+            data-modal-desc="This white-labeled digital passbook is used by multiple financial institutions."
+            data-clients='[{"name":"Manushi mPassbook","link":"https://play.google.com/store/apps/details?id=com.uranusapp.manushimpassbook&pcampaignid=web_share"},{"name":"Client 2 (Coming Soon)","link":"#"},{"name":"Client 3 (Coming Soon)","link":"#"}]'
+            class="view-clients-btn w-full bg-[#1e2140] hover:bg-[#64ffda] text-[#64ffda] hover:text-[#0a0e27] py-2 rounded transition-colors duration-300 font-semibold text-sm flex items-center justify-center gap-2 cursor-pointer border border-[#64ffda]/30 hover:border-transparent">
+            <i class="fas fa-layer-group"></i>
+            <span>View All Clients</span>
+          </button>
+        </div>
+      </div>
 
+      <!-- 5. Sidhasewa (Professional - EEE Innovation Ghar) -->
+      <div data-category="professional" data-company="eee"
+        class="bg-[#151932] rounded-lg overflow-hidden transition-all duration-300 hover:transform hover:-translate-y-2.5 hover:shadow-lg hover:shadow-[rgba(100,255,218,0.2)] project-card scroll-scale flex flex-col justify-between">
+        <div>
+          <div class="px-6 pt-5 flex justify-between items-center">
+            <span
+              class="bg-[#7ee787]/10 text-[#7ee787] border border-[#7ee787]/30 px-3 py-1 rounded-full text-xs font-semibold tracking-wide">
+              <i class="fas fa-lightbulb mr-1.5"></i>EEE Innovation Ghar
+            </span>
+            <span class="text-xs text-[#a0a0a0] font-mono">Marketplace</span>
           </div>
+          <div
+            class="h-48 overflow-hidden my-4 mx-6 rounded-lg bg-[#0a0e27] border border-[#7ee787]/20 flex items-center justify-center">
+            <img src="images/sidhasewa image.jpg" alt="Sidhasewa"
+              class="w-full h-full object-contain transition-transform duration-300 hover:scale-105" />
+          </div>
+          <div class="px-6 pb-2">
+            <h3 class="text-xl mb-2 text-[#64ffda] font-bold">Sidhasewa</h3>
+            <p class="text-[#a0a0a0] text-sm leading-relaxed">
+              Flutter-based client application connecting producers and consumers with real-time market data.
+              Implemented BLoC state management across the entire application for scalable architecture.
+            </p>
+            <div class="flex flex-wrap gap-2 my-4">
+              <span
+                class="bg-[#79c0ff]/20 text-[#79c0ff] px-2.5 py-0.5 rounded-full text-xs font-medium border border-[#79c0ff]/30">Flutter</span>
+              <span
+                class="bg-[#79c0ff]/20 text-[#79c0ff] px-2.5 py-0.5 rounded-full text-xs font-medium border border-[#79c0ff]/30">BLoC</span>
+              <span
+                class="bg-[#79c0ff]/20 text-[#79c0ff] px-2.5 py-0.5 rounded-full text-xs font-medium border border-[#79c0ff]/30">REST
+                API</span>
+            </div>
+          </div>
+        </div>
+        <div class="px-6 pb-6 pt-2 border-t border-[#1e2140]/60">
+          <a href="https://play.google.com/store/apps/details?id=com.sidhasewa.app&pcampaignid=web_share"
+            target="_blank"
+            class="inline-flex items-center gap-2 text-[#64ffda] hover:text-[#7ee787] font-medium text-sm transition-colors duration-300">
+            <img src="images/play-store.png" alt="Play Store"
+              class="h-6 transition-transform duration-300 hover:scale-110" />
+            <span>View on Play Store</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- 6. Class 9 Science (Personal Project) -->
+      <div data-category="personal" data-company="personal"
+        class="bg-[#151932] rounded-lg overflow-hidden transition-all duration-300 hover:transform hover:-translate-y-2.5 hover:shadow-lg hover:shadow-[rgba(100,255,218,0.2)] project-card scroll-scale flex flex-col justify-between">
+        <div>
+          <div class="px-6 pt-5 flex justify-between items-center">
+            <span
+              class="bg-[#f06292]/10 text-[#f06292] border border-[#f06292]/30 px-3 py-1 rounded-full text-xs font-semibold tracking-wide">
+              <i class="fas fa-user-astronaut mr-1.5"></i>Personal Project
+            </span>
+            <span class="text-xs text-[#a0a0a0] font-mono">EdTech</span>
+          </div>
+          <div
+            class="h-48 overflow-hidden my-4 mx-6 rounded-lg bg-[#0a0e27] border border-[#f06292]/20 flex items-center justify-center">
+            <img src="images/class-09_science.png" alt="Class 9 Science"
+              class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
+          </div>
+          <div class="px-6 pb-2">
+            <h3 class="text-xl mb-2 text-[#64ffda] font-bold">Class 9 Science</h3>
+            <p class="text-[#a0a0a0] text-sm leading-relaxed">
+              Self-developed and self-published Flutter educational application for Class 9 students. Implemented BLoC
+              state management and chapter-wise official curriculum solutions.
+            </p>
+            <div class="flex flex-wrap gap-2 my-4">
+              <span
+                class="bg-[#79c0ff]/20 text-[#79c0ff] px-2.5 py-0.5 rounded-full text-xs font-medium border border-[#79c0ff]/30">Flutter</span>
+              <span
+                class="bg-[#79c0ff]/20 text-[#79c0ff] px-2.5 py-0.5 rounded-full text-xs font-medium border border-[#79c0ff]/30">BLoC</span>
+              <span
+                class="bg-[#79c0ff]/20 text-[#79c0ff] px-2.5 py-0.5 rounded-full text-xs font-medium border border-[#79c0ff]/30">Education</span>
+            </div>
+          </div>
+        </div>
+        <div class="px-6 pb-6 pt-2 border-t border-[#1e2140]/60">
+          <a href="https://play.google.com/store/apps/details?id=com.jayaram.class9science&pcampaignid=web_share"
+            target="_blank"
+            class="inline-flex items-center gap-2 text-[#64ffda] hover:text-[#7ee787] font-medium text-sm transition-colors duration-300">
+            <img src="images/play-store.png" alt="Play Store"
+              class="h-6 transition-transform duration-300 hover:scale-110" />
+            <span>View on Play Store</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- 7. SEE Question (Personal Project) -->
+      <div data-category="personal" data-company="personal"
+        class="bg-[#151932] rounded-lg overflow-hidden transition-all duration-300 hover:transform hover:-translate-y-2.5 hover:shadow-lg hover:shadow-[rgba(100,255,218,0.2)] project-card scroll-scale flex flex-col justify-between">
+        <div>
+          <div class="px-6 pt-5 flex justify-between items-center">
+            <span
+              class="bg-[#f06292]/10 text-[#f06292] border border-[#f06292]/30 px-3 py-1 rounded-full text-xs font-semibold tracking-wide">
+              <i class="fas fa-user-astronaut mr-1.5"></i>Personal Project
+            </span>
+            <span class="text-xs text-[#a0a0a0] font-mono">Exam Prep</span>
+          </div>
+          <div
+            class="h-48 overflow-hidden my-4 mx-6 rounded-lg bg-[#0a0e27] border border-[#f06292]/20 flex items-center justify-center">
+            <img src="images/see_question.png" alt="SEE Question"
+              class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
+          </div>
+          <div class="px-6 pb-2">
+            <h3 class="text-xl mb-2 text-[#64ffda] font-bold">SEE Question</h3>
+            <p class="text-[#a0a0a0] text-sm leading-relaxed">
+              Flutter-based SEE preparation application developed and published independently. Implemented BLoC state
+              management for a clean, exam-focused and user-friendly experience.
+            </p>
+            <div class="flex flex-wrap gap-2 my-4">
+              <span
+                class="bg-[#79c0ff]/20 text-[#79c0ff] px-2.5 py-0.5 rounded-full text-xs font-medium border border-[#79c0ff]/30">Flutter</span>
+              <span
+                class="bg-[#79c0ff]/20 text-[#79c0ff] px-2.5 py-0.5 rounded-full text-xs font-medium border border-[#79c0ff]/30">BLoC</span>
+              <span
+                class="bg-[#79c0ff]/20 text-[#79c0ff] px-2.5 py-0.5 rounded-full text-xs font-medium border border-[#79c0ff]/30">Exam
+                Prep</span>
+            </div>
+          </div>
+        </div>
+        <div class="px-6 pb-6 pt-2 border-t border-[#1e2140]/60">
+          <a href="https://play.google.com/store/apps/details?id=com.jayaram.seequestion&pcampaignid=web_share"
+            target="_blank"
+            class="inline-flex items-center gap-2 text-[#64ffda] hover:text-[#7ee787] font-medium text-sm transition-colors duration-300">
+            <img src="images/play-store.png" alt="Play Store"
+              class="h-6 transition-transform duration-300 hover:scale-110" />
+            <span>View on Play Store</span>
+          </a>
         </div>
       </div>
     </div>
 
+    <!-- Show More Button Container -->
+    <div class="text-center mt-12 scroll-fade-in" id="show-more-container">
+      <button id="show-more-projects"
+        class="px-8 py-3 rounded-full border-2 border-[#64ffda] bg-transparent text-[#64ffda] hover:bg-[#64ffda] hover:text-[#0a0e27] font-semibold text-base transition-all duration-300 inline-flex items-center gap-2 shadow-lg shadow-[rgba(100,255,218,0.1)] cursor-pointer">
+        <span>Show More Projects</span>
+        <i class="fas fa-chevron-down ml-1"></i>
+      </button>
+    </div>
+
   </section>
 
-  <!-- <section
-      id="open_source_projects"
-      class="py-10 px-5 md:px-10 lg:px-20 max-w-7xl mx-auto"
-    >
-      <h2
-        class="text-4xl mb-12 relative inline-block after:content-[''] after:absolute after:bottom-[-10px] after:left-0 after:w-12 after:h-0.5 after:bg-[#64ffda] scroll-fade-in"
-      >
-        Open Source Projects
-      </h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div
-          class="bg-[#151932] rounded-lg overflow-hidden transition-all duration-300 hover:transform hover:-translate-y-2.5 hover:shadow-lg hover:shadow-[rgba(100,255,218,0.2)] project-card scroll-scale"
-        >
-          <div class="h-60 overflow-hidden">
-            <img
-              src="images/ai_exam_evaluator.jpeg"
-              alt="AI Exam Evaluator"
-              class="w-full h-full object-cover object-top transition-transform duration-300 hover:scale-110"
-            />
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl mb-2 text-[#64ffda]">AI Exam Evaluator</h3>
-            <p class="text-[#a0a0a0]">
-              AI-powered Flutter app for grading answer sheets from photos using
-              n8n and Gemini AI backend.
-            </p>
-            <div class="flex flex-wrap gap-3 my-5">
-              <span
-                class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm"
-                >Flutter</span
-              >
-              <span
-                class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm"
-                >N8N</span
-              >
-              <span
-                class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm"
-                >Gemini AI</span
-              >
-              <span
-                class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm"
-                >AI/ML</span
-              >
-              <span
-                class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm"
-                >Image Processing</span
-              >
-            </div>
-            <a
-              href="https://github.com/Dineshsowndar/ai_exam_evaluator"
-              target="_blank"
-              class="text-[#64ffda] no-underline flex items-center gap-2 px-24 md:px-20 pt-2"
-              ><img
-                src="images/github.png"
-                class="transition-transform duration-300 hover:scale-110"
-            /></a>
-          </div>
-        </div>
 
-        <div
-          class="bg-[#151932] h-full flex flex-col rounded-lg overflow-hidden transition-all duration-300 hover:transform hover:-translate-y-2.5 hover:shadow-lg hover:shadow-[rgba(100,255,218,0.2)] project-card scroll-scale"
-        >
-          <div class="h-60 overflow-hidden">
-            <img
-              src="images/flutter_esp32_rgb_led_controller.jpeg"
-              alt="Flutter ESP32 RGB LED Controller"
-              class="w-full object-cover object-top transition-transform duration-300 hover:scale-110"
-            />
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl mb-2 text-[#64ffda]">
-              Flutter ESP32 RGB LED Controller
-            </h3>
-            <p class="text-[#a0a0a0]">
-              IoT Flutter app controlling RGB LEDs via Bluetooth with real-time
-              effects and ESP32 hardware.
-            </p>
-            <div class="flex flex-wrap gap-3 my-5 h-fit">
-              <span
-                class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm"
-                >Flutter</span
-              >
-              <span
-                class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm"
-                >IoT</span
-              >
-              <span
-                class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm"
-                >Bluetooth</span
-              >
-              <span
-                class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm"
-                >Arduino</span
-              >
-              <span
-                class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm"
-                >ESP32</span
-              >
-            </div>
-            <a
-              href="https://github.com/Dinesh-Sowndar/flutter_esp32_rgb_led_controller"
-              target="_blank"
-              class="text-[#64ffda] no-underline flex items-center gap-2 px-24 md:px-20 pt-2"
-              ><img
-                src="images/github.png"
-                class="transition-transform duration-300 hover:scale-110"
-            /></a>
-          </div>
-        </div>
-
-        <div
-          class="bg-[#151932] rounded-lg overflow-hidden transition-all duration-300 hover:transform hover:-translate-y-2.5 hover:shadow-lg hover:shadow-[rgba(100,255,218,0.2)] project-card scroll-scale"
-        >
-          <div class="h-60 overflow-hidden">
-            <img
-              src="images/flutter_furniture_app_ui_challenge.jpeg"
-              alt="Flutter Furniture App UI Challenge"
-              class="w-full h-full object-cover object-bottom transition-transform duration-300 hover:scale-110"
-            />
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl mb-2 text-[#64ffda]">
-              Flutter Furniture App UI Challenge
-            </h3>
-            <p class="text-[#a0a0a0]">
-              Elegant Flutter UI demo showcasing advanced animations,
-              transitions, and responsive design.
-            </p>
-            <div class="flex flex-wrap gap-3 my-5">
-              <span
-                class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm"
-                >Flutter</span
-              >
-              <span
-                class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm"
-                >UI/UX</span
-              >
-              <span
-                class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm"
-                >Animation</span
-              >
-              <span
-                class="bg-[#79c0ff] text-black px-3 py-1 rounded-full text-sm"
-                >App Design</span
-              >
-            </div>
-            <a
-              href="https://github.com/Dinesh-Sowndar/flutter_furniture_app_ui_challenge"
-              target="_blank"
-              class="text-[#64ffda] no-underline flex items-center gap-2 px-24 md:px-20 pt-2"
-              ><img
-                src="images/github.png"
-                class="transition-transform duration-300 hover:scale-110"
-            /></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="text-center space-y-2 scroll-fade-in">
-        <p class="text-center pt-10 text-lg font-medium">
-          Explore more open-source projects on
-        </p>
-        <a
-          href="https://github.com/Dinesh-Sowndar/"
-          class="text-[#64ffda] text-xl inline-block text-center transform transition-transform duration-200 hover:scale-110"
-          target="_blank"
-          ><i class="fab fa-github mr-2"></i>GitHub</a
-        >
-      </div>
-    </section> -->
 
   <!-- Skills Section -->
   <section id="skills" class="py-10 px-5 md:px-10 lg:px-20 max-w-7xl mx-auto">
@@ -959,13 +1112,28 @@
             class="flex flex-col items-center gap-5 p-5 transition-transform duration-300 hover:-translate-y-1.5 text-lg skill-item">
             <img src="images/flutter-icon.jpg" class="w-20 h-20 object-contain" />Flutter
           </div>
-           <div
+          <div
             class="flex flex-col items-center gap-5 p-5 transition-transform duration-300 hover:-translate-y-1.5 text-lg skill-item">
             <img src="images/bloc_new.png" class="w-20 h-20 object-contain" />BLoC
           </div>
           <div
             class="flex flex-col items-center gap-5 p-5 transition-transform duration-300 hover:-translate-y-1.5 text-lg skill-item">
             <img src="images/riverpod_image.svg" class="w-20 h-20 object-contain" />RiverPod
+          </div>
+          <div
+            class="flex flex-col items-center gap-5 p-5 transition-transform duration-300 hover:-translate-y-1.5 text-lg skill-item">
+            <img src="images/clean_arch_new.png"
+              class="w-20 h-20 object-contain rounded-full shadow-[0_0_15px_rgba(100,255,218,0.2)]" />Clean Architecture
+          </div>
+          <div
+            class="flex flex-col items-center gap-5 p-5 transition-transform duration-300 hover:-translate-y-1.5 text-lg skill-item">
+            <img src="images/cubit_logo.png"
+              class="w-20 h-20 object-contain rounded-full shadow-[0_0_15px_rgba(100,255,218,0.2)]" />Cubit
+          </div>
+          <div
+            class="flex flex-col items-center gap-5 p-5 transition-transform duration-300 hover:-translate-y-1.5 text-lg skill-item">
+            <img src="images/gorouter_logo.png"
+              class="w-20 h-20 object-contain rounded-full shadow-[0_0_15px_rgba(100,255,218,0.2)]" />Go Router
           </div>
 
         </div>
@@ -1115,7 +1283,7 @@
         <div class="w-4/5">
           <h4 class="text-[#64ffda] mb-1">Instagram</h4>
           <p class="text-[#a0a0a0] group-hover:text-[#64ffda]">
-           instagram.com/ma_jayaram_dhungana/
+            instagram.com/ma_jayaram_dhungana/
           </p>
         </div>
       </a>
@@ -1146,6 +1314,24 @@
     class="fixed bottom-5 right-5 w-12 h-12 bg-[#64ffda] rounded-full flex items-center justify-center text-[#0a0e27] no-underline opacity-0 invisible transition-all duration-300 z-30 hover:bg-[#f06292] hover:-translate-y-1.5"><i
       class="fas fa-arrow-up"></i>
   </a>
+
+  <!-- Clients Modal -->
+  <div id="clientsModal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-content flex flex-col">
+      <div class="p-6 border-b border-[#1e2140] flex justify-between items-center sticky top-0 bg-[#151932] z-10">
+        <h3 class="text-2xl text-[#64ffda] font-bold" id="modalTitle">Clients</h3>
+        <button id="closeModalBtn" class="text-[#a0a0a0] hover:text-[#f06292] transition-colors cursor-pointer">
+          <i class="fas fa-times text-xl"></i>
+        </button>
+      </div>
+      <div class="p-6" id="modalBody">
+        <p class="text-[#a0a0a0] mb-6" id="modalDesc">Used by multiple institutions.</p>
+        <div class="grid grid-cols-1 gap-4" id="clientsList">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script type="module">
     // Import the functions you need from the SDKs you need
@@ -1206,9 +1392,11 @@
       scrollTopBtn = $("#scrollTop"),
       header = $("#header"),
       typingText = $("#typingText"),
-      particlesWrap = $("#particles");
+      particlesWrap = $("#particles"),
+      clientsModal = $("#clientsModal"),
+      closeModalBtn = $("#closeModalBtn");
 
-    /* ===== Loader (bulletproof) ===== */
+    /* ===== Loader and Initialize ===== */
     function hideLoader() {
       if (!loader) return;
       loader.style.transition = "opacity 0.5s ease";
@@ -1458,6 +1646,169 @@
         item.style.transitionDelay = `${index * 0.1}s`;
       });
     });
+
+    /* ===== Project Filtering & Show More Feature ===== */
+    (function initProjectFilters() {
+      const filterBtns = document.querySelectorAll(".project-filter-btn");
+      const cards = document.querySelectorAll("#projects .project-card");
+      const showMoreBtn = document.getElementById("show-more-projects");
+      const showMoreContainer = document.getElementById("show-more-container");
+
+      if (!cards.length) return;
+
+      let currentFilter = "all";
+      let isExpanded = false;
+      const INITIAL_LIMIT = 6;
+
+      function renderProjects() {
+        const matchingCards = [];
+
+        cards.forEach((card) => {
+          const category = card.getAttribute("data-category");
+          const company = card.getAttribute("data-company");
+          const matches =
+            currentFilter === "all" ||
+            category === currentFilter ||
+            company === currentFilter;
+          if (matches) {
+            matchingCards.push(card);
+          } else {
+            card.style.display = "none";
+            card.classList.remove("project-visible");
+          }
+        });
+
+        matchingCards.forEach((card, idx) => {
+          if (isExpanded || idx < INITIAL_LIMIT) {
+            card.style.display = "flex";
+            setTimeout(() => card.classList.add("project-visible"), idx * 60);
+          } else {
+            card.style.display = "none";
+            card.classList.remove("project-visible");
+          }
+        });
+
+        if (showMoreContainer && showMoreBtn) {
+          if (matchingCards.length > INITIAL_LIMIT) {
+            showMoreContainer.style.display = "block";
+            const hiddenCount = matchingCards.length - INITIAL_LIMIT;
+            const btnSpan = showMoreBtn.querySelector("span");
+            const btnIcon = showMoreBtn.querySelector("i");
+
+            if (isExpanded) {
+              if (btnSpan) btnSpan.textContent = "Show Less Projects";
+              if (btnIcon) btnIcon.className = "fas fa-chevron-up ml-1";
+            } else {
+              if (btnSpan) btnSpan.textContent = `Show More (${hiddenCount} more)`;
+              if (btnIcon) btnIcon.className = "fas fa-chevron-down ml-1";
+            }
+          } else {
+            showMoreContainer.style.display = "none";
+          }
+        }
+      }
+
+      filterBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          filterBtns.forEach((b) => {
+            b.classList.remove(
+              "active",
+              "bg-[#64ffda]",
+              "text-[#0a0e27]",
+              "shadow-lg",
+              "shadow-[rgba(100,255,218,0.2)]"
+            );
+            b.classList.add(
+              "bg-[#151932]",
+              "text-[#a0a0a0]",
+              "border-[#1e2140]"
+            );
+          });
+          btn.classList.add(
+            "active",
+            "bg-[#64ffda]",
+            "text-[#0a0e27]",
+            "shadow-lg",
+            "shadow-[rgba(100,255,218,0.2)]"
+          );
+          btn.classList.remove(
+            "bg-[#151932]",
+            "text-[#a0a0a0]",
+            "border-[#1e2140]"
+          );
+
+          currentFilter = btn.getAttribute("data-filter");
+          isExpanded = false; // reset expand state when switching filters
+          renderProjects();
+        });
+      });
+
+      if (showMoreBtn) {
+        showMoreBtn.addEventListener("click", () => {
+          isExpanded = !isExpanded;
+          renderProjects();
+        });
+      }
+
+      // Initial run
+      renderProjects();
+
+      /* ===== Modal Logic ===== */
+      const modal = document.getElementById("clientsModal");
+      const closeBtn = document.getElementById("closeModalBtn");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalDesc = document.getElementById("modalDesc");
+      const clientsList = document.getElementById("clientsList");
+
+      function openModal(title, desc, clients) {
+        modalTitle.textContent = title;
+        modalDesc.textContent = desc;
+        clientsList.innerHTML = clients.map(client => `
+          <a href="${client.link}" target="${client.link !== '#' ? '_blank' : '_self'}" class="flex items-center justify-between p-4 rounded-xl bg-gradient-to-r from-[#1e2140] to-[#151932] hover:from-[#1e2140] hover:to-[#1e2140] border border-[#64ffda]/20 hover:border-[#64ffda]/50 transition-all group no-underline w-full">
+            <div class="flex items-center gap-4">
+              <div class="w-14 h-14 rounded-full bg-[#0a0e27] border border-[#64ffda]/30 flex items-center justify-center text-[#64ffda] text-xl group-hover:scale-110 transition-transform shadow-[0_0_10px_rgba(100,255,218,0.2)] overflow-hidden">
+                ${client.logo ? `<img src="${client.logo}" alt="${client.company}" class="w-full h-full object-contain bg-white p-1.5" />` : `<i class="fas fa-building"></i>`}
+              </div>
+              <div class="flex flex-col justify-center">
+                <p class="text-[#e6e6e6] text-base font-bold m-0 tracking-wide">${client.company}</p>
+                <p class="text-[#a0a0a0] text-sm m-0 mt-0.5">${client.appName}</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 text-[#64ffda] bg-[#64ffda]/10 px-3 py-1.5 rounded-lg group-hover:bg-[#64ffda] group-hover:text-[#0a0e27] transition-colors">
+              <i class="fab fa-google-play"></i>
+              <span class="text-xs font-semibold hidden sm:inline">Play Store</span>
+            </div>
+          </a>
+        `).join('');
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      closeBtn.addEventListener("click", () => {
+        modal.classList.remove("active");
+        document.body.style.overflow = "";
+      });
+
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          modal.classList.remove("active");
+          document.body.style.overflow = "";
+        }
+      });
+
+      // Attach click to "View All Clients" buttons via event delegation
+      document.body.addEventListener("click", (e) => {
+        const btn = e.target.closest(".view-clients-btn");
+        if (btn) {
+          e.preventDefault();
+          const title = btn.getAttribute("data-modal-title");
+          const desc = btn.getAttribute("data-modal-desc");
+          const clients = JSON.parse(btn.getAttribute("data-clients") || "[]");
+          openModal(title, desc, clients);
+        }
+      });
+
+    })();
 
     /* ===== End of Script ===== */
   </script>
